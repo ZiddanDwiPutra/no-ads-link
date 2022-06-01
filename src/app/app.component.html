@@ -1,8 +1,4 @@
-<div>
-  <input type="text" [(ngModel)]="oriLink">
-  <br><br>
-  <input type="text" [(ngModel)]="shortLink" (keyup)="checkAvailability()" (change)="checkAvailability()">
-  <br>{{isAvailable}}
-  <br><br>
-  <button (click)="generate()">Generate</button>
-</div>
+<section class="content">
+    <router-outlet></router-outlet>
+</section>
+<app-footer></app-footer>
