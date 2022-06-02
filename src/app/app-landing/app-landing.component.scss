@@ -1,3 +1,10 @@
-.card{
+.landing-card{
     width: 500px;
+}
+
+@media only screen and (max-device-width: 768px) {
+    /* Styles */
+    .landing-card{
+        width: unset;
+    }
 }

@@ -39,7 +39,9 @@ body{
   background-color: lightblue;
   padding: 0 ;
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+*{
+  font-family: "Fira Sans", "Helvetica Neue", sans-serif; 
 }
 
 ol, ul{
@@ -49,7 +51,7 @@ ol, ul{
         margin-bottom: 0.25rem;
     }
 }
-html, body { height: 100%; }
+// html, body { height: 100%; }
 button:disabled{
   cursor: not-allowed !important;
 }

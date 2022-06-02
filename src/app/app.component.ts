@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
   title:string = "";
+  mainAppClasses:string = "main-app";
   constructor(){}
+  
   ngOnInit(): void {}
+
+
 }
