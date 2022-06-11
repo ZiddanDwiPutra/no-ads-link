@@ -9,21 +9,34 @@
                     Set your link destination and customize your short link
                 </mat-card-subtitle>
                 <mat-card-content>
-                    <mat-form-field style="width: 100%;">
+                    <mat-form-field class="w-full md:w-3/4">
                         <mat-label>Destination Link</mat-label>
                         <input matInput [(ngModel)]="oriLink" [placeholder]="oriLinkOption.placeholder" (keyup)="toURLize('oriLink')" (change)="validate()">
                     </mat-form-field>
-                    <mat-form-field style="width: 100%;">
+                    <mat-form-field class="w-full md:w-3/4">
                         <mat-label>Customize Link</mat-label>
-                        <input matInput [placeholder]="shortLinkOption.placeholder" [(ngModel)]="shortLink" (keyup)="checkAvailability()" (change)="checkAvailability();" (click)="showMessage = true">
+                        <input matInput [placeholder]="shortLinkOption.placeholder" [(ngModel)]="shortLink" (keyup)="checkAvailability()" (click)="checkAvailability()" (click)="showMessage = true">
                         <mat-hint *ngIf="showMessage">{{isAvailable? "Available" : (shortLink.length<4 ? "Characters must contain at least 4 letters": "Not Available") }} </mat-hint>
                     </mat-form-field>
                     <br><br>
-                    <button mat-raised-button color="primary" [disabled]="!isValidToGenerate" (click)="generate()" matStepperNext>Generate</button>
+                    <button mat-raised-button color="primary" [disabled]="!isValidToGenerate" matStepperNext (click)="interactTo(2)">Generate</button>
                 </mat-card-content>
             </mat-step>
             <mat-step>
                 <mat-card-title>Step 2</mat-card-title>
+                <mat-card-subtitle>
+                    there is your generated link, enjoy to copy and share link for everyone.
+                </mat-card-subtitle>
+                <mat-card-content class="pt-2">
+                    <mat-form-field class="w-3/4">
+                        <mat-label>Your generated link</mat-label>
+                        <input class="border-1" matInput [value]="'https://no-ads-link.web.app/'+shortLink" >    
+                    </mat-form-field>
+                    <button mat-raised-button color="primary" class="" (click)="copy()">Copy</button>
+                    
+                    <br><br>
+                    <button mat-raised-button color="primary" (click)="createNewLink()" matStepperNext>Create new link</button>
+                </mat-card-content>
             </mat-step>
         </mat-stepper>
     </mat-card>

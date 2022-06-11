@@ -18,6 +18,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './shared/header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AboutComponent } from './about/about.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AboutComponent } from './about/about.component';
     MatInputModule,
     MatStepperModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     FirebaseService

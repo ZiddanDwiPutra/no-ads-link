@@ -34,6 +34,17 @@ export class FirebaseService {
             created_at: new Date()
         });
     }
+    async getLink(shortLink:string) {
+        if(shortLink != "" && shortLink){
+            const linkRef = collection(this.db, this.KEY.links);
+            let q = query(linkRef, where("short_link", "==", shortLink));
+
+            let result = await getDocs(q);
+            if(result.size==0)throw new Error("Error No Data");
+            return result.docs[0].data();
+        }
+        return undefined;
+    }
 
     async isExist(shortLink:string) {
         if(shortLink != "" && shortLink){

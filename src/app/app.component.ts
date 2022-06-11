@@ -1,4 +1,5 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
+import { LoadingService } from 'src/service/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ export class AppComponent implements OnInit{
   title:string = "";
   mainAppClasses:string = "main-app";
   constructor(){}
-  
+
   ngOnInit(): void {}
 
 

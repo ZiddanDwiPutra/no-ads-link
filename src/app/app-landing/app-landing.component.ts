@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from 'src/service/firebase.service';
+import { LoadingService } from 'src/service/loading.service';
 
 @Component({
   selector: 'app-landing',
@@ -30,26 +31,49 @@ export class AppLandingComponent implements OnInit {
   constructor(
     private service: FirebaseService,
     private activeRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private loadingService: LoadingService
   ){
     this.activeRoute.params.subscribe(params=>{
       const {shortLink} = params;
+      this.loadingService.showLoading();
       this.service.isExist(shortLink).then(isAvailable=>{
         if(isAvailable){
-          
+          this.service.getLink(shortLink).then(res=>{
+            if(res){
+              open(this.fixLink(res['ori_link']), "_self");
+            }else this.loadingService.hideLoading();
+          });
         }else this.router.navigateByUrl("app/not-found");
       });
     });
   }
+
+  fixLink(link:string){
+    let isHttps = true;
+    if(link.includes("http://")){
+      link = link.replace(/http:\/\//g, '');
+      isHttps = false
+    }else if(link.includes("https://"))link = link.replace(/https:\/\//g, '');
+    
+    if(link.includes("www."))link = link.replace(/www.\/\//g, '');
+
+    return isHttps? "https://"+link : "http://"+link;
+  }
   
 
   ngOnInit(): void {}
+  fixValidUrl(link:string){
+    let result = encodeURIComponent(decodeURIComponent(link))
+    .replace(/%2F/g, '_').replace(/%20/g, '_').replace(/%26/g, "_").replace(/%3F/g, "_");
+    return result;
+  }
   toURLize(link: "oriLink"|"shortLink"){
     if(link == "oriLink"){
-      let result = encodeURIComponent(decodeURIComponent(this.oriLink))
+      let result = this.fixValidUrl(this.oriLink)
       this.oriLink = result;
     }else {
-      let result = encodeURIComponent(decodeURIComponent(this.shortLink))
+      let result = this.fixValidUrl(this.shortLink)
       this.shortLink = result;
     }
   }
@@ -58,7 +82,7 @@ export class AppLandingComponent implements OnInit {
     this.validate();
     this.toURLize('shortLink');
     if(this.shortLink.length<4)return;
-    this.service.isExist(this.shortLink).then(res=>{
+    return this.service.isExist(this.shortLink).then(res=>{
       this.isAvailable = !res;
       this.validate();
     });
@@ -68,10 +92,24 @@ export class AppLandingComponent implements OnInit {
   }
 
   generate(){
+    this.loadingService.showLoading();
     this.service.addShortLink(this.oriLink, this.shortLink).then(res=>{
-      alert("Success");
+      this.loadingService.hideLoading();
+      
     }).catch(e=>{
       console.error(e);
     });
+  }
+  interactTo(num: number){
+    if(num==2){
+      this.generate();
+    }
+  }
+  createNewLink(){
+    location.reload();
+  }
+  copy(){
+    let value = 'https://no-ads-link.web.app/'+this.shortLink;
+    navigator.clipboard.writeText(value);
   }
 }

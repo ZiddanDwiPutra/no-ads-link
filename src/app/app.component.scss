@@ -1,3 +1,12 @@
 .content{
     padding-top: 3.5rem;
 }
+
+.overlay-wrapper{
+    @apply fixed w-full h-screen backdrop-blur-sm top-0 left-0;
+    z-index: 1000;
+}
+
+.loading-wrapper{
+    @apply flex items-center justify-center;
+}
