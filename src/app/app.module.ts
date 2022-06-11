@@ -11,16 +11,22 @@ import { AppNotFoundComponent } from './shared/app-not-found/app-not-found.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { HeaderComponent } from './shared/header/header.component';
+import { MatIconModule } from '@angular/material/icon';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppLandingComponent,
     AppFooterComponent,
-    AppNotFoundComponent
+    AppNotFoundComponent,
+    HeaderComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,9 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatStepperModule
+    MatStepperModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [
     FirebaseService

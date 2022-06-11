@@ -1,6 +1,6 @@
 <div class="std-page" align="center">
-    <mat-card class="landing-card" align="left">
-        <mat-stepper >
+    <mat-card align="left">
+        <mat-stepper class="bg-transparent">
             <mat-step>
                 <mat-card-title>
                     Step 1
@@ -16,7 +16,7 @@
                     <mat-form-field style="width: 100%;">
                         <mat-label>Customize Link</mat-label>
                         <input matInput [placeholder]="shortLinkOption.placeholder" [(ngModel)]="shortLink" (keyup)="checkAvailability()" (change)="checkAvailability();" (click)="showMessage = true">
-                        <mat-hint *ngIf="showMessage">{{isAvailable? "Link Tersedia" : (shortLink.length<4 ? "Karakter harus berisi setidaknya 4 huruf": "Tidak Tersedia") }} </mat-hint>
+                        <mat-hint *ngIf="showMessage">{{isAvailable? "Available" : (shortLink.length<4 ? "Characters must contain at least 4 letters": "Not Available") }} </mat-hint>
                     </mat-form-field>
                     <br><br>
                     <button mat-raised-button color="primary" [disabled]="!isValidToGenerate" (click)="generate()" matStepperNext>Generate</button>

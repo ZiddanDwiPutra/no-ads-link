@@ -1,0 +1,19 @@
+.flex-1-1 {
+    flex: 1 1 auto;
+}
+.header-wrapper{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+
+    .child{
+        border-top: 1px solid lightblue;
+        font-size: small;
+        cursor: pointer;
+        &:hover, &:focus{
+            color: gray;
+            background: linear-gradient(white, lightblue);
+        }
+    }
+}

@@ -33,7 +33,9 @@ $no-ads-link-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($no-ads-link-theme);
 
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* You can add global styles to this file, and also import other style files */
 body{
   background-color: lightblue;
@@ -44,13 +46,6 @@ body{
   font-family: "Fira Sans", "Helvetica Neue", sans-serif; 
 }
 
-ol, ul{
-    padding: 0 0;
-    margin: 0.25rem 1rem;
-    li{
-        margin-bottom: 0.25rem;
-    }
-}
 // html, body { height: 100%; }
 button:disabled{
   cursor: not-allowed !important;
@@ -60,6 +55,7 @@ button:hover{
 }
 .std-page{
   padding: 0.5rem;
+  padding-top: 1rem;
   min-height: 480px;
 }
 mat-form-field{
@@ -74,4 +70,17 @@ app-footer{
 }
 .mat-horizontal-stepper-header-container {
   display: none !important;
+}
+
+.std-shadow{
+  box-shadow: 0 0 3rem -1rem gray;
+}
+
+.bg-theme-1{
+  background-size: cover;
+  background-image: url("./assets/bg-1.jpg");
+}
+.mat-card{
+  @apply backdrop-blur-md;
+  background: transparent;
 }

@@ -1,0 +1,17 @@
+<div class="header-wrapper w-full" align="center">
+    <div class=" w-full md:w-3/5 bg-white">
+        <mat-toolbar class="std-shadow">
+            <mat-icon (click)="navigate('/')" class="cursor-pointer">link</mat-icon>
+            <span (click)="navigate('/')" class="cursor-pointer">No Ads Link</span>
+            <span class="flex-1-1"></span>
+            <button mat-icon-button class="icon" (click)="showChild = !showChild">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </mat-toolbar>
+        <span *ngIf="showChild">
+            <mat-toolbar class="child" *ngFor="let item of headChilds" (click)="navigate(item.url)">
+                <span>{{item.text}}</span>
+            </mat-toolbar>
+        </span>
+    </div>
+</div>
