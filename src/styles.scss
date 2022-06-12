@@ -38,6 +38,7 @@ $no-ads-link-theme: mat.define-light-theme((
 @tailwind utilities;
 /* You can add global styles to this file, and also import other style files */
 @import "app/styles/fonts.scss";
+@import "app/styles/mat-style.scss";
 
 body{
   background-color: lightblue;
@@ -70,19 +71,17 @@ app-footer{
   min-height: 200px;
   padding-top: 3rem;
 }
-.mat-horizontal-stepper-header-container {
-  display: none !important;
-}
-
 .std-shadow{
   box-shadow: 0 0 3rem -1rem gray;
 }
 
 .bg-theme-1{
   background-size: cover;
-  background-image: url("./assets/bg-1.jpg");
+  background-image: url("./assets/bg-2.jpg");
 }
-.mat-card{
-  @apply backdrop-blur-md;
-  background: transparent;
+code{
+  @apply px-2;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
 }

@@ -1,0 +1,31 @@
+mat-card-content{
+    @apply py-2;
+}
+
+.mat-horizontal-stepper-header-container {
+    display: none !important;
+}
+
+.mat-card{
+    @apply backdrop-blur-md mb-6;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.mat-expansion-indicator::after{
+    border-color: gray;
+}
+.mat-expansion-panel, .mat-expansion-panel-header{
+    @apply backdrop-blur-sm bg-transparent;
+    p{
+        @apply border-t border-gray-400 pt-2;
+        font-weight: 200;
+    }
+}
+.mat-expansion-panel-header{
+    font-size: large;
+    font-weight: normal;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.4);
+}

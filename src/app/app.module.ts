@@ -19,6 +19,10 @@ import { HeaderComponent } from './shared/header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AboutComponent } from './about/about.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { InstructionComponent } from './app-landing/shared/instruction/instruction.component';
+import { WidgetInfoComponent } from './app-landing/shared/widget-info/widget-info.component';
+import { SuggestionComponent } from './app-landing/shared/suggestion/suggestion.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     AppFooterComponent,
     AppNotFoundComponent,
     HeaderComponent,
-    AboutComponent
+    AboutComponent,
+    InstructionComponent,
+    WidgetInfoComponent,
+    SuggestionComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatStepperModule,
     MatToolbarModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatExpansionModule
   ],
   providers: [
     FirebaseService
