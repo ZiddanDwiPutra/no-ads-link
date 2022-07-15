@@ -41,7 +41,7 @@ $no-ads-link-theme: mat.define-light-theme((
 @import "app/styles/mat-style.scss";
 
 body{
-  background-color: lightblue;
+  background-color: #ffe7d8;
   padding: 0 ;
   margin: 0;
 }
@@ -78,6 +78,9 @@ app-footer{
 .bg-theme-1{
   background-size: cover;
   background-image: url("./assets/bg-2.jpg");
+}
+.bg-main{
+  background-color: #fff6ed;
 }
 code{
   @apply px-2;
